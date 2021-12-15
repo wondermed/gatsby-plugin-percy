@@ -84,7 +84,7 @@ exports.onPostBuild = async ({ reporter, graphql, store }, {
   await activity.try('Taking snapshots', () => {
     let snapshots = mapStaticSnapshots(pages, { ...config, server });
     if (!snapshots.length) throw new Error('No snapshots found');
-    return utils.postSnapshot(snapshots, { async: true });
+    return utils.postSnapshot(snapshots);
   });
 
   // clean up
