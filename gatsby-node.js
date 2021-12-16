@@ -70,7 +70,7 @@ exports.onPostBuild = async ({ reporter, graphql, store }, {
 
   // serve static build output
   let server = await activity.try('Serving build output', () => {
-    return serve(store.getState().program.directory, config);
+    return serve(store.getState().program.directory + '/public', config);
   });
 
   // query and resolve pages to snapshot
